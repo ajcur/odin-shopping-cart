@@ -1,0 +1,28 @@
+import { useEffect, useState } from "react";
+
+export default function useItemData() {
+  const [items, setItems] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    try {
+      (async () => {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts",
+        );
+        if (!response.ok) {
+          throw new Error("server error");
+        }
+        const data = await response.json();
+        setItems(data);
+      })();
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  return { items, error, loading };
+}

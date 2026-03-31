@@ -73,3 +73,35 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+:root {
+  --bg-color: #303b5c;
+  --text-color: white;
+  --primary-color: #c64825;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+  background-color: white;
+  color: black;
+  padding: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 1rem;
+}
+
+nav {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  font-size: 1.2rem;
+}

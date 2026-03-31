@@ -1,3 +1,7 @@
+import { useOutletContext } from "react-router-dom";
+
 export default function Shop() {
-  return <div>Shop</div>;
+  const [items] = useOutletContext();
+
+  return <div>{items && items.map((item) => <div>{item.id}</div>)}</div>;
 }
