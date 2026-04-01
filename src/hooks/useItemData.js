@@ -8,14 +8,12 @@ export default function useItemData() {
   useEffect(() => {
     try {
       (async () => {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/posts",
-        );
+        const response = await fetch("https://dummyjson.com/products");
         if (!response.ok) {
           throw new Error("server error");
         }
         const data = await response.json();
-        const trimmedData = data.slice(0, 10);
+        const trimmedData = data.products.slice(0, 20);
         setItems(trimmedData);
       })();
     } catch (error) {
