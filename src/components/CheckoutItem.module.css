@@ -1,0 +1,54 @@
+.container {
+  border: 1px solid var(--bg-color);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.quantityBox {
+  grid-area: 2 / 1;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 10%;
+  max-height: 30px;
+  justify-content: center;
+  align-self: center;
+  border: 1px solid var(--bg-color);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.quantityBox * {
+  text-align: center;
+}
+
+.btn {
+  box-shadow: none;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: block;
+}
+
+.itemHeader {
+  min-width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: grid;
+  grid-template-columns: 1fr 40px;
+}
+
+.title {
+  padding: 1rem;
+}
+
+.deleteBtn {
+  composes: btn;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+}

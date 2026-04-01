@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import useItemData from "../hooks/useItemData";
 import { useState } from "react";
+import "../index.css";
 
 export default function Layout() {
   const { items, error, loading } = useItemData();

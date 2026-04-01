@@ -23,12 +23,12 @@ export default function CheckoutItem({
 
   return (
     <div className={styles.container}>
-      <div className={styles.itemInfo}>
-        <div>{title}</div>
+      <div className={styles.itemHeader}>
+        <div className={styles.title}>{title}</div>
+        <button className={styles.deleteBtn} onClick={handleDeleteBtnClick}>
+          <Trash className={styles.icon} />
+        </button>
       </div>
-      <button className={styles.btn} onClick={handleDeleteBtnClick}>
-        <Trash className={styles.icon} />
-      </button>
       <div className={styles.quantityBox}>
         <button className={styles.btn} onClick={handleRemoveBtnClick}>
           -
