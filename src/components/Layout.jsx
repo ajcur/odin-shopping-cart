@@ -7,20 +7,23 @@ export default function Layout() {
   const { items, error, loading } = useItemData();
   const [idsInCart, setIdsInCart] = useState([]);
 
-  console.log(idsInCart);
-
-  function handleAdd(id, quantity) {
+  function handleAdd(id, quantity = 1) {
     let newIdsInCart = [...idsInCart];
     for (let i = 0; i < quantity; i++) {
       newIdsInCart.push(id);
     }
+    newIdsInCart.sort();
     setIdsInCart(newIdsInCart);
   }
 
-  function handleRemove(id) {
-    let newIdsInCart = idsInCart.filter(
-      (item) => item !== idsInCart.find((item) => item.id === id),
-    );
+  function handleRemoveOne(targetId) {
+    let index = idsInCart.indexOf(targetId);
+    let newIdsInCart = idsInCart.toSpliced(index, 1).sort();
+    setIdsInCart(newIdsInCart);
+  }
+
+  function handleDelete(targetId) {
+    let newIdsInCart = idsInCart.filter((id) => id !== targetId).sort();
     setIdsInCart(newIdsInCart);
   }
 
@@ -30,7 +33,9 @@ export default function Layout() {
         <NavBar />
       </header>
       <main>
-        <Outlet context={[items, handleAdd, handleRemove]} />
+        <Outlet
+          context={[items, handleAdd, handleRemoveOne, handleDelete, idsInCart]}
+        />
       </main>
     </>
   );

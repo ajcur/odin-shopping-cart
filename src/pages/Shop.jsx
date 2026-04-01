@@ -3,7 +3,6 @@ import ShopItem from "../components/ShopItem";
 
 export default function Shop() {
   const [items, handleAdd] = useOutletContext();
-
   return (
     <div>
       {items &&
