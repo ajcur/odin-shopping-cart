@@ -15,7 +15,8 @@ export default function useItemData() {
           throw new Error("server error");
         }
         const data = await response.json();
-        setItems(data);
+        const trimmedData = data.slice(0, 10);
+        setItems(trimmedData);
       })();
     } catch (error) {
       setError(error);

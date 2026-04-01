@@ -7,10 +7,14 @@ export default function Layout() {
   const { items, error, loading } = useItemData();
   const [idsInCart, setIdsInCart] = useState([]);
 
-  console.log(items);
+  console.log(idsInCart);
 
-  function handleAdd(id) {
-    setIdsInCart(...idsInCart, id);
+  function handleAdd(id, quantity) {
+    let newIdsInCart = [...idsInCart];
+    for (let i = 0; i < quantity; i++) {
+      newIdsInCart.push(id);
+    }
+    setIdsInCart(newIdsInCart);
   }
 
   function handleRemove(id) {
