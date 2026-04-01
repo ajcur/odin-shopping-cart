@@ -12,6 +12,8 @@ export default function Shop() {
               key={`${item.id}Shop`}
               id={item.id}
               title={item.title}
+              imgUrl={item.thumbnail}
+              price={item.price}
               handleAdd={handleAdd}
             />
           );

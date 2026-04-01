@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "./ShopItem.module.css";
+import QuantitySettingBox from "./QuantitySettingBox";
 
-export default function ShopItem({ id, title, handleAdd }) {
+export default function ShopItem({ id, title, imgUrl, price, handleAdd }) {
   const [quantity, setQuantity] = useState(0);
   const quantityText = quantity.toString();
 
@@ -11,11 +12,11 @@ export default function ShopItem({ id, title, handleAdd }) {
     inputNum > 0 ? setQuantity(inputNum) : setQuantity(0);
   }
 
-  function handleIncrement() {
+  function handlePlusBtnClick() {
     setQuantity(quantity + 1);
   }
 
-  function handleDecrement() {
+  function handleMinusBtnClick() {
     quantity > 0 && setQuantity(quantity - 1);
   }
 
@@ -29,23 +30,13 @@ export default function ShopItem({ id, title, handleAdd }) {
   return (
     <div className={styles.container}>
       <div>{title}</div>
-      <div className={styles.quantityBox}>
-        <label htmlFor={`${id}Quantity`}>Quantity:</label>
-        <input
-          type="number"
-          value={quantityText}
-          id={`${id}Quantity`}
-          name="quantity"
-          min="0"
-          onChange={handleChange}
-        />
-        <button className={styles.btn} onClick={handleDecrement}>
-          -
-        </button>
-        <button className={styles.btn} onClick={handleIncrement}>
-          +
-        </button>
-      </div>
+      <img src={imgUrl} />
+      <div className={styles.price}>€ {price}</div>
+      <QuantitySettingBox
+        quantity={quantity}
+        handlePlusBtnClick={handlePlusBtnClick}
+        handleMinusBtnClick={handleMinusBtnClick}
+      />
       <button className={styles.addBtn} onClick={handleAddBtnClick}>
         Add to Cart
       </button>

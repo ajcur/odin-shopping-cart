@@ -1,5 +1,6 @@
 import { Trash } from "lucide-react";
 import styles from "./CheckoutItem.module.css";
+import QuantitySettingBox from "./QuantitySettingBox";
 
 export default function CheckoutItem({
   id,
@@ -9,11 +10,11 @@ export default function CheckoutItem({
   handleDelete,
   quantity,
 }) {
-  function handleAddBtnClick() {
+  function handlePlusBtnClick() {
     handleAdd(id);
   }
 
-  function handleRemoveBtnClick() {
+  function handleMinusBtnClick() {
     handleRemoveOne(id);
   }
 
@@ -29,15 +30,11 @@ export default function CheckoutItem({
           <Trash className={styles.icon} />
         </button>
       </div>
-      <div className={styles.quantityBox}>
-        <button className={styles.btn} onClick={handleRemoveBtnClick}>
-          -
-        </button>
-        <div>{quantity}</div>
-        <button className={styles.btn} onClick={handleAddBtnClick}>
-          +
-        </button>
-      </div>
+      <QuantitySettingBox
+        quantity={quantity}
+        handlePlusBtnClick={handlePlusBtnClick}
+        handleMinusBtnClick={handleMinusBtnClick}
+      />
     </div>
   );
 }

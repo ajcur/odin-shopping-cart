@@ -1,0 +1,25 @@
+.container {
+  grid-area: 2 / 1;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: max(30%, 50px);
+  max-height: 30px;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  border: 1px solid var(--bg-color);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.container * {
+  text-align: center;
+}
+
+.btn {
+  box-shadow: none;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: block;
+}
