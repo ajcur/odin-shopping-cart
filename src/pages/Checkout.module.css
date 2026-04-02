@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.itemsContainer {
+  display: grid;
+  grid-template-columns: 1;
+  grid-auto-flow: row;
+  gap: 1rem;
+}
+
+.heading {
+  margin-bottom: 2rem;
+}

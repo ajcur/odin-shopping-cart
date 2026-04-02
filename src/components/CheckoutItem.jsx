@@ -5,6 +5,8 @@ import QuantitySettingBox from "./QuantitySettingBox";
 export default function CheckoutItem({
   id,
   title,
+  imgUrl,
+  price,
   handleAdd,
   handleRemoveOne,
   handleDelete,
@@ -30,11 +32,17 @@ export default function CheckoutItem({
           <Trash className={styles.icon} />
         </button>
       </div>
-      <QuantitySettingBox
-        quantity={quantity}
-        handlePlusBtnClick={handlePlusBtnClick}
-        handleMinusBtnClick={handleMinusBtnClick}
-      />
+      <div className={styles.itemDetails}>
+        <img className={styles.img} src={imgUrl} />
+        <div className={styles.subtotal}>{`€ ${price * quantity}`}</div>
+        <div className={styles.priceEach}>{`€ ${price} × ${quantity}`}</div>
+        <QuantitySettingBox
+          className={styles.quantityBox}
+          quantity={quantity}
+          handlePlusBtnClick={handlePlusBtnClick}
+          handleMinusBtnClick={handleMinusBtnClick}
+        />
+      </div>
     </div>
   );
 }

@@ -1,30 +1,69 @@
 .container {
-  border: 1px solid var(--bg-color);
-  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0.5rem;
-  justify-content: center;
+  padding: 0.3rem;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
 .itemHeader {
+  padding: 1rem;
   min-width: 100%;
-  background-color: var(--bg-color);
   color: var(--text-color);
   display: grid;
   grid-template-columns: 1fr 40px;
+  border-image: linear-gradient(
+      to left,
+      transparent,
+      var(--text-color-30),
+      transparent
+    )
+    1;
+  border-width: 2px;
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 .title {
-  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .deleteBtn {
-  box-shadow: none;
+  background-color: unset;
   color: var(--text-color);
   display: grid;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-color);
+}
+
+.itemDetails {
+  padding: 2rem;
+  justify-self: space-between;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+}
+
+.img {
+  max-height: 300px;
+  grid-row: 1 / 4;
+}
+
+.subtotal {
+  font-weight: bold;
+  font-size: 1.2rem;
+  grid-column: 2 / 3;
+}
+
+.priceEach {
+  color: var(--text-color-60);
+  grid-column: 2 / 3;
+}
+
+.quantityBox {
+  max-width: 90px;
 }
