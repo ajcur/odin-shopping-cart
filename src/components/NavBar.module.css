@@ -51,12 +51,17 @@ nav {
 .badge {
   background-color: var(--primary-color);
   color: var(--text-color);
-  width: 20px;
-  height: 20px;
+  min-width: 3ch;
+  padding: 0 0.2em;
+  aspect-ratio: 1 / 1;
   font-size: 0.8rem;
   text-align: center;
+  border: 1.5px solid var(--bg-color);
   border-radius: 50%;
   position: absolute;
-  top: -10px;
-  right: -10px;
+  bottom: 12px;
+  left: 12px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
