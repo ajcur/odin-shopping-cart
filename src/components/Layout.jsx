@@ -31,7 +31,7 @@ export default function Layout() {
   return (
     <>
       <header>
-        <NavBar />
+        <NavBar idsInCart={idsInCart} />
       </header>
       <main>
         <Outlet

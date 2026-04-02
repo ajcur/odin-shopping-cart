@@ -3,7 +3,7 @@ import styles from "./ShopItem.module.css";
 import QuantitySettingBox from "./QuantitySettingBox";
 
 export default function ShopItem({ id, title, imgUrl, price, handleAdd }) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const quantityText = quantity.toString();
 
   function handleChange(e) {
@@ -29,13 +29,15 @@ export default function ShopItem({ id, title, imgUrl, price, handleAdd }) {
 
   return (
     <div className={styles.container}>
-      <div>{title}</div>
-      <img src={imgUrl} />
+      <img className={styles.img} src={imgUrl} />
       <div className={styles.price}>€ {price}</div>
+      <div className={styles.title}>{title}</div>
       <QuantitySettingBox
+        className={styles.quantityBox}
         quantity={quantity}
         handlePlusBtnClick={handlePlusBtnClick}
         handleMinusBtnClick={handleMinusBtnClick}
+        handleChange={handleChange}
       />
       <button className={styles.addBtn} onClick={handleAddBtnClick}>
         Add to Cart

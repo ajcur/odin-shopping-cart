@@ -77,16 +77,27 @@ h6 {
 }
 
 :root {
-  --bg-color: #303b5c;
-  --text-color: white;
-  --primary-color: #c64825;
+  --bg-color: rgb(32, 32, 32);
+  --text-color: rgb(255, 255, 255);
+  --text-color-30: rgba(255, 255, 255, 0.3);
+  --text-color-60: rgba(255, 255, 255, 0.6);
+  --primary-color: rgb(226, 125, 2);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#root {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 90px auto;
+  align-items: stretch;
+  width: 100vw;
+  height: 100vh;
+}
+
 main {
-  background-color: white;
-  color: black;
-  padding: 1rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 2rem;
 }
 
 a {
@@ -96,18 +107,5 @@ a {
 
 button {
   border: none;
-}
-
-header {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  padding: 1rem;
-}
-
-nav {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  font-size: 1.2rem;
+  cursor: pointer;
 }

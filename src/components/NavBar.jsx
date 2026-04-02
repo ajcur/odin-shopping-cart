@@ -2,11 +2,14 @@ import { ShoppingBag, ShoppingCart } from "lucide-react";
 import { NavLink, Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 
-export default function NavBar() {
+export default function NavBar({ idsInCart }) {
+  console.log(`Navbar: ${idsInCart.length}, ${idsInCart}`);
   return (
     <>
       <nav>
-        <Link to="/">Home</Link>
+        <Link to="/" className={styles.navlink}>
+          Home
+        </Link>
         <NavLink
           to="shop"
           className={({ isActive }) =>
@@ -26,6 +29,9 @@ export default function NavBar() {
           }
         >
           <ShoppingCart className={styles.icon} />
+          {idsInCart.length > 0 && (
+            <div className={styles.badge}>{idsInCart.length}</div>
+          )}
         </NavLink>
       </nav>
     </>
