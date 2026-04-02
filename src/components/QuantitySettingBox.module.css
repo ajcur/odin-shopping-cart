@@ -12,6 +12,7 @@
 }
 
 .btn {
+  font-weight: bold;
   box-shadow: none;
   background-color: var(--bg-color);
   color: var(--text-color);

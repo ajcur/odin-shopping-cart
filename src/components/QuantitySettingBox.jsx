@@ -9,7 +9,7 @@ export default function QuantitySettingBox({
   return (
     <div className={styles.container}>
       <button className={styles.btn} onClick={handleMinusBtnClick}>
-        -
+        –
       </button>
       <div className={styles.quantity}>
         {handleChange !== undefined ? (

@@ -86,9 +86,11 @@ h6 {
 }
 
 #root {
+  background-color: var(--bg-color);
+  color: var(--text-color);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 90px auto;
+  grid-template-rows: 90px 1fr;
   align-items: stretch;
   width: 100vw;
   height: 100vh;
@@ -96,7 +98,6 @@ h6 {
 
 main {
   background-color: var(--bg-color);
-  color: var(--text-color);
   padding: 2rem;
 }
 

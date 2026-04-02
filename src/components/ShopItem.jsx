@@ -4,12 +4,11 @@ import QuantitySettingBox from "./QuantitySettingBox";
 
 export default function ShopItem({ id, title, imgUrl, price, handleAdd }) {
   const [quantity, setQuantity] = useState(1);
-  const quantityText = quantity.toString();
 
   function handleChange(e) {
     e.target.value.replace(/\D/, "");
     let inputNum = Number(e.target.value);
-    inputNum > 0 ? setQuantity(inputNum) : setQuantity(0);
+    inputNum > 1 ? setQuantity(inputNum) : setQuantity(1);
   }
 
   function handlePlusBtnClick() {
@@ -23,7 +22,7 @@ export default function ShopItem({ id, title, imgUrl, price, handleAdd }) {
   function handleAddBtnClick() {
     if (quantity > 0) {
       handleAdd(id, quantity);
-      setQuantity(0);
+      setQuantity(1);
     }
   }
 
@@ -32,16 +31,18 @@ export default function ShopItem({ id, title, imgUrl, price, handleAdd }) {
       <img className={styles.img} src={imgUrl} />
       <div className={styles.price}>€ {price}</div>
       <div className={styles.title}>{title}</div>
-      <QuantitySettingBox
-        className={styles.quantityBox}
-        quantity={quantity}
-        handlePlusBtnClick={handlePlusBtnClick}
-        handleMinusBtnClick={handleMinusBtnClick}
-        handleChange={handleChange}
-      />
-      <button className={styles.addBtn} onClick={handleAddBtnClick}>
-        Add to Cart
-      </button>
+      <div className={styles.bottomBox}>
+        <QuantitySettingBox
+          className={styles.quantityBox}
+          quantity={quantity}
+          handlePlusBtnClick={handlePlusBtnClick}
+          handleMinusBtnClick={handleMinusBtnClick}
+          handleChange={handleChange}
+        />
+        <button className={styles.addBtn} onClick={handleAddBtnClick}>
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 }
